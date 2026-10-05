@@ -87,7 +87,7 @@ export default function Home() {
                     <a className="ulink" href={p.codigo} rel="noopener noreferrer">Ver el código</a>
                   </div>
                   <figure className="shot">
-                    <img src={p.imagen.src} width={1600} height={1100} alt={p.imagen.alt} loading="lazy" decoding="async" />
+                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${p.imagen.src}`} width={1600} height={1100} alt={p.imagen.alt} loading="lazy" decoding="async" />
                   </figure>
                 </article>
               ))}

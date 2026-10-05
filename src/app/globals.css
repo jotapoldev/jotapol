@@ -42,7 +42,7 @@ h1, h2, h3 { text-wrap: balance; }
 .top nav a:hover { background: rgba(220, 216, 255, 0.08); color: var(--claro); }
 
 /* ---------- portada ---------- */
-.hero { position: relative; padding-block: clamp(56px, 11vh, 128px) clamp(72px, 12vh, 140px); }
+.hero { position: relative; overflow-x: clip; padding-block: clamp(56px, 11vh, 128px) clamp(72px, 12vh, 140px); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 5vw, 72px); align-items: end; }
 .hero .cmd { display: inline-block; overflow: hidden; white-space: nowrap; }
 .hero h1 { font-size: clamp(60px, 11vw, 168px); font-weight: 800; letter-spacing: -0.055em; line-height: 0.86; margin: 0 0 34px; }
@@ -122,6 +122,8 @@ h1, h2, h3 { text-wrap: balance; }
 .foot .wm { font-size: 22px; color: var(--claro); font-family: var(--sans); }
 
 @media (max-width: 900px) {
+  .remotes li { flex-direction: column; gap: 4px; }
+  .remotes span { min-width: 0; font-size: 14px; }
   .hero-grid, .commit { grid-template-columns: minmax(0, 1fr); }
   .shot { order: -1; }
   .ghost { width: 80vw; top: 0; }
