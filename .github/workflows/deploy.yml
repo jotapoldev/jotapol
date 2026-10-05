@@ -26,9 +26,6 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
-        env:
-          # Quitar cuando jotapol.dev apunte aquí.
-          NEXT_PUBLIC_BASE_PATH: /jotapol
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
