@@ -43,15 +43,20 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0E0B2A",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F7F6FB" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B0A1F" },
+  ],
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es" className={`${sans.variable} ${mono.variable}`}>
+    <html lang="es" suppressHydrationWarning className={`${sans.variable} ${mono.variable}`}>
       <head>
         <meta httpEquiv="Content-Security-Policy" content={csp} />
+        {/* Aplica el tema guardado antes de pintar, para que no parpadee. */}
+        <script dangerouslySetInnerHTML={{ __html: 'try{var t=localStorage.getItem("tema");if(t)document.documentElement.dataset.theme=t}catch(e){}' }} />
       </head>
       <body>{children}</body>
     </html>

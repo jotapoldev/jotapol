@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- sitio estático: las imágenes ya van optimizadas en webp */
 import { contacto, proyectos } from "@/lib/proyectos";
+import { ThemeToggle } from "./theme-toggle";
 
 const gancho = {
   j: "M8 8 H26 V38 C26 44.6 31.4 50 38 50 H56 V56 H38 C28.1 56 20 47.9 20 38 V14 H8 Z",
@@ -19,11 +20,14 @@ export default function Home() {
       <header className="top">
         <div className="wrap">
           <a className="wm" href="#inicio" aria-label="jotapol, inicio">jotapol<Cursor /></a>
-          <nav aria-label="Secciones">
-            <a href="#proyectos">Proyectos</a>
-            <a href="#clientes">Para clientes</a>
-            <a href="#contacto">Contacto</a>
-          </nav>
+          <div className="top-right">
+            <nav aria-label="Secciones">
+              <a href="#proyectos">Proyectos</a>
+              <a href="#clientes">Para clientes</a>
+              <a href="#contacto">Contacto</a>
+            </nav>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
@@ -87,7 +91,10 @@ export default function Home() {
                     </p>
                   </div>
                   <figure className="shot">
-                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${p.imagen.src}`} width={1600} height={1100} alt={p.imagen.alt} loading="lazy" decoding="async" />
+                    <picture>
+                      <source media="(max-width: 640px)" srcSet={p.imagen.movil} width={900} height={1170} />
+                      <img src={p.imagen.src} width={1600} height={1100} alt={p.imagen.alt} loading="lazy" decoding="async" />
+                    </picture>
                   </figure>
                 </article>
               ))}
