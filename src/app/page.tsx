@@ -86,8 +86,8 @@ export default function Home() {
                     <p className="desc">{p.descripcion}</p>
                     <p className="trailer">Hecho-con: {p.stack.join(", ")}</p>
                     <p className="plinks">
-                      {p.demo && <a className="btn" href={p.demo} rel="noopener noreferrer">Probar en vivo</a>}
-                      {p.codigo && <a className="ulink" href={p.codigo} rel="noopener noreferrer">Ver el código</a>}
+                      {p.demo && <a className="btn" href={p.demo} target="_blank" rel="noopener noreferrer">Probar en vivo</a>}
+                      {p.codigo && <a className="ulink" href={p.codigo} target="_blank" rel="noopener noreferrer">Ver el código</a>}
                     </p>
                   </div>
                   {/* Escena: la app en escritorio y en celular. En pantallas chicas queda solo el celular, completo. */}
@@ -126,7 +126,7 @@ export default function Home() {
                 {contacto.map((c) => (
                   <li key={c.tipo}>
                     <span>{c.tipo}</span>
-                    <a className="ulink" href={c.href} rel="noopener noreferrer">{c.texto}</a>
+                    <a className="ulink" href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">{c.texto}</a>
                   </li>
                 ))}
               </ul>
