@@ -184,9 +184,11 @@ h1, h2, h3 { text-wrap: balance; }
   .section h2 { margin-bottom: 8px; }
   .commit { gap: 0; padding: 0; margin-top: 28px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--bg-2); }
   .commit + .commit { border-top: 1px solid var(--line); }
-  .commit .shot { border-radius: 0; padding: 28px 0; display: grid; place-items: center; }
-  .commit .shot .browser { display: none; }
-  .commit .shot .phone { position: static; width: min(58%, 240px); }
+  .commit .shot { border-radius: 0; padding: 22px 0 22px 18px; }
+  .commit .shot .browser { width: 82%; }
+  .commit .shot .bar span { font-size: 9px; }
+  .commit .shot .phone { width: 27%; right: 5%; bottom: 7%; padding: 4px; border-radius: 16px; }
+  .commit .shot .phone img { border-radius: 12px; }
   .commit .meta { padding: 20px 20px 22px; }
   .commit h3 { font-size: 34px; margin-bottom: 8px; }
   .desc { font-size: 16px; margin-bottom: 14px; }
