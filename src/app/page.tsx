@@ -90,11 +90,15 @@ export default function Home() {
                       <a className="ulink" href={p.codigo} rel="noopener noreferrer">Ver el código</a>
                     </p>
                   </div>
-                  <figure className="shot">
-                    <picture>
-                      <source media="(max-width: 640px)" srcSet={p.imagen.movil} width={900} height={1170} />
+                  {/* Escena: la app en escritorio y en celular. En pantallas chicas queda solo el celular, completo. */}
+                  <figure className="shot" data-tono={p.tono}>
+                    <div className="browser">
+                      <div className="bar" aria-hidden="true"><i /><i /><i /><span>{p.demo?.replace("https://", "")}</span></div>
                       <img src={p.imagen.src} width={1600} height={1100} alt={p.imagen.alt} loading="lazy" decoding="async" />
-                    </picture>
+                    </div>
+                    <div className="phone">
+                      <img src={p.imagen.movil} width={600} height={1298} alt={`${p.nombre} en el celular`} loading="lazy" decoding="async" />
+                    </div>
                   </figure>
                 </article>
               ))}

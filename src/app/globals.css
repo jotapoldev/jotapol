@@ -22,6 +22,8 @@
   --glow: rgba(59, 47, 214, 0.25);
   --shadow: 0 30px 60px -30px rgba(14, 11, 42, 0.3);
   --ghost: 0.06;
+  --panel-indigo: #3B2FD6;
+  --panel-menta: #BFF3E9;
 
   --sans: var(--font-sans), system-ui, sans-serif;
   --mono: var(--font-mono), ui-monospace, monospace;
@@ -35,7 +37,7 @@
     --bg: #0B0A1F; --bg-2: #13112E; --surface: #13112E; --fg: #E9E7F7; --muted: #A7A3C4; --faint: #7C78A0;
     --line: #22203F; --accent: #5EEAD4; --cursor: #5EEAD4; --btn-bg: #E9E7F7; --btn-fg: #0B0A1F;
     --hash: #F2C14E; --del: #F9A8D4; --add-bg: rgba(94, 234, 212, 0.08); --del-bg: rgba(249, 168, 212, 0.08);
-    --bar: rgba(11, 10, 31, 0.78); --glow: rgba(94, 234, 212, 0.35); --shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8); --ghost: 0.07;
+    --bar: rgba(11, 10, 31, 0.78); --glow: rgba(94, 234, 212, 0.35); --shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8); --ghost: 0.07; --panel-indigo: #2A21A8; --panel-menta: #134E48;
   }
 }
 :root[data-theme="dark"] {
@@ -43,7 +45,7 @@
   --bg: #0B0A1F; --bg-2: #13112E; --surface: #13112E; --fg: #E9E7F7; --muted: #A7A3C4; --faint: #7C78A0;
   --line: #22203F; --accent: #5EEAD4; --cursor: #5EEAD4; --btn-bg: #E9E7F7; --btn-fg: #0B0A1F;
   --hash: #F2C14E; --del: #F9A8D4; --add-bg: rgba(94, 234, 212, 0.08); --del-bg: rgba(249, 168, 212, 0.08);
-  --bar: rgba(11, 10, 31, 0.78); --glow: rgba(94, 234, 212, 0.35); --shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8); --ghost: 0.07;
+  --bar: rgba(11, 10, 31, 0.78); --glow: rgba(94, 234, 212, 0.35); --shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8); --ghost: 0.07; --panel-indigo: #2A21A8; --panel-menta: #134E48;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -133,9 +135,16 @@ h1, h2, h3 { text-wrap: balance; }
 .plinks { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin: 0; }
 .ulink { font-weight: 600; color: var(--accent); text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat; padding-bottom: 3px; transition: background-size 260ms var(--ease-out); }
 .ulink:hover { background-size: 100% 2px; }
-.shot { margin: 0; min-width: 0; border-radius: 16px; overflow: hidden; background: var(--bg-2); box-shadow: 0 0 0 1px var(--line), var(--shadow); }
-.shot img { width: 100%; transition: transform 600ms var(--ease-out); }
-.commit:hover .shot img { transform: scale(1.02); }
+.shot { position: relative; margin: 0; min-width: 0; border-radius: 20px; overflow: hidden; padding: 7% 0 0 7%; background: var(--panel-indigo); }
+.shot[data-tono="menta"] { background: var(--panel-menta); }
+.shot .browser { width: 93%; border-radius: 10px 0 0 0; overflow: hidden; background: #0E0B2A; box-shadow: 0 30px 60px -25px rgba(14, 11, 42, 0.55); }
+.shot .bar { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background: #1A1740; }
+.shot .bar i { width: 8px; height: 8px; border-radius: 50%; background: #3A3666; }
+.shot .bar span { margin-left: 8px; font-family: var(--mono); font-size: 11px; color: #A7A3C4; background: #0E0B2A; padding: 2px 10px; border-radius: 6px; }
+.shot .browser img { width: 100%; }
+.shot .phone { position: absolute; right: 5%; bottom: 6%; width: 22%; padding: 5px; border-radius: 22px; background: #0E0B2A; box-shadow: 0 24px 50px -15px rgba(14, 11, 42, 0.6); transition: transform 500ms var(--ease-out); }
+.shot .phone img { width: 100%; border-radius: 17px; }
+.commit:hover .shot .phone { transform: translateY(-6px); }
 .next { font-family: var(--mono); font-size: 14px; color: var(--faint); margin: 24px 0 0; }
 
 /* clientes */
@@ -175,8 +184,9 @@ h1, h2, h3 { text-wrap: balance; }
   .section h2 { margin-bottom: 8px; }
   .commit { gap: 0; padding: 0; margin-top: 28px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--bg-2); }
   .commit + .commit { border-top: 1px solid var(--line); }
-  .commit .shot { border-radius: 0; box-shadow: none; border-bottom: 1px solid var(--line); max-height: 360px; }
-  .commit .shot img { object-fit: cover; object-position: top; }
+  .commit .shot { border-radius: 0; padding: 28px 0; display: grid; place-items: center; }
+  .commit .shot .browser { display: none; }
+  .commit .shot .phone { position: static; width: min(58%, 240px); }
   .commit .meta { padding: 20px 20px 22px; }
   .commit h3 { font-size: 34px; margin-bottom: 8px; }
   .desc { font-size: 16px; margin-bottom: 14px; }
@@ -225,6 +235,8 @@ h1, h2, h3 { text-wrap: balance; }
 
     .shot { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 35%; }
     @keyframes reveal { from { transform: translateY(32px); opacity: 0.3; } to { transform: none; opacity: 1; } }
+    .shot .phone { animation: lift linear both; animation-timeline: view(); animation-range: entry 10% cover 45%; }
+    @keyframes lift { from { transform: translateY(40%); } to { transform: none; } }
 
     .diff div:not(.hd) { animation: diffin linear both; animation-timeline: view(); animation-range: entry 20% cover 30%; }
     @keyframes diffin { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }

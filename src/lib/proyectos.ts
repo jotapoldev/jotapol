@@ -8,6 +8,7 @@ export type Proyecto = {
   openSource: boolean;
   codigo: string;
   demo?: string;
+  tono: "indigo" | "menta";
   imagen: { src: string; movil: string; alt: string };
 };
 
@@ -22,6 +23,7 @@ export const proyectos: Proyecto[] = [
     openSource: true,
     codigo: "https://github.com/jotapoldev/shiplog",
     demo: "https://shiplog.jotapol.com",
+    tono: "indigo",
     imagen: { src: "/img/shiplog.webp", movil: "/img/shiplog-movil.webp", alt: "Vista de ramas de Shiplog: develop tiene 9 commits que qa todavía no tiene." },
   },
   {
@@ -34,6 +36,7 @@ export const proyectos: Proyecto[] = [
     openSource: true,
     codigo: "https://github.com/jotapoldev/llaves",
     demo: "https://llaves.jotapol.com",
+    tono: "menta",
     imagen: { src: "/img/llaves.webp", movil: "/img/llaves-movil.webp", alt: "Cuadro de eliminación de LLAVES con ocho equipos y Halcones como campeón." },
   },
 ];
