@@ -23,7 +23,7 @@ html { scroll-behavior: smooth; }
 .skip { position: absolute; left: -9999px; }
 .skip:focus { left: 16px; top: 16px; z-index: 30; background: var(--menta); color: var(--tinta); padding: 8px 14px; border-radius: 8px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-body { margin: 0; background: var(--tinta); color: var(--claro); font-family: var(--sans); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body { margin: 0; background: var(--tinta); color: var(--claro); font-family: var(--sans); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: clip; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--menta); outline-offset: 3px; border-radius: 6px; }
@@ -34,7 +34,7 @@ h1, h2, h3 { text-wrap: balance; }
 .cur { display: inline-block; width: 0.42em; height: 0.13em; margin-left: 0.06em; border-radius: 99px; background: var(--menta); }
 
 /* ---------- barra ---------- */
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(14, 11, 42, 0.78); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); }
 .top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding-block: 18px; }
 .wm { display: inline-flex; align-items: baseline; font-weight: 800; font-size: 26px; letter-spacing: -0.045em; text-decoration: none; }
 .top nav { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -89,9 +89,8 @@ h1, h2, h3 { text-wrap: balance; }
 .hash span { color: var(--hash); margin-right: 6px; }
 .commit h3 { font-size: clamp(42px, 5vw, 66px); font-weight: 800; letter-spacing: -0.045em; line-height: 0.95; margin: 0 0 18px; }
 .desc { color: var(--niebla); margin: 0 0 20px; max-width: 30em; }
-.stack { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0 0 22px; }
-.stack li { font-family: var(--mono); font-size: 13px; padding: 5px 10px; border-radius: 8px; background: rgba(220, 216, 255, 0.07); color: var(--niebla); }
-.stack li.oss { background: rgba(94, 234, 212, 0.12); color: var(--menta); }
+.trailer { font-family: var(--mono); font-size: 14px; color: var(--niebla); opacity: 0.7; margin: 0 0 24px; }
+.hash .ref { color: var(--menta); margin-right: 6px; }
 .plinks { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin: 0; }
 .ulink { font-weight: 800; color: var(--menta); text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat; padding-bottom: 3px; transition: background-size 260ms var(--ease-out); }
 .ulink:hover { background-size: 100% 2px; }
@@ -121,6 +120,17 @@ h1, h2, h3 { text-wrap: balance; }
 .foot { border-top: 1px solid var(--line); }
 .foot .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-block: 28px 40px; font-family: var(--mono); font-size: 14px; color: var(--niebla); }
 .foot .wm { font-size: 22px; color: var(--claro); font-family: var(--sans); }
+
+@media (max-width: 640px) {
+  .top nav a:not(:last-child) { display: none; }
+  .top nav a:last-child { box-shadow: inset 0 0 0 1.5px rgba(220, 216, 255, 0.3); }
+  .term { display: none; }
+  .log { padding-left: 0; }
+  .rail, .node::before { display: none; }
+  .shot { box-shadow: 0 0 0 1px var(--line); border-radius: 14px; }
+  .clients { border-radius: 20px; }
+  .actions .btn { flex: 1 1 100%; justify-content: center; }
+}
 
 @media (max-width: 900px) {
   .remotes li { flex-direction: column; gap: 4px; }
@@ -178,7 +188,5 @@ h1, h2, h3 { text-wrap: balance; }
     .ghost { animation: drift linear both; animation-timeline: scroll(root); }
     @keyframes drift { to { transform: translateY(30vh) rotate(-8deg); } }
 
-    .top { animation: bar linear both; animation-timeline: scroll(root); animation-range: 0 120px; }
-    @keyframes bar { to { background: rgba(14, 11, 42, 0.82); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); } }
   }
 }

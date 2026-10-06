@@ -77,13 +77,10 @@ export default function Home() {
               {proyectos.map((p) => (
                 <article className="commit node" key={p.hash}>
                   <div className="meta">
-                    <p className="hash"><span>{p.hash}</span> {p.mensaje}</p>
+                    <p className="hash"><span>{p.hash}</span>{p.openSource && <b className="ref">(open source)</b>}{p.mensaje}</p>
                     <h3>{p.nombre}</h3>
                     <p className="desc">{p.descripcion}</p>
-                    <ul className="stack" aria-label="Tecnologías">
-                      {p.stack.map((s) => <li key={s}>{s}</li>)}
-                      {p.openSource && <li className="oss">open source</li>}
-                    </ul>
+                    <p className="trailer">Hecho-con: {p.stack.join(", ")}</p>
                     <p className="plinks">
                       {p.demo && <a className="btn" href={p.demo} rel="noopener noreferrer">Probar en vivo</a>}
                       <a className="ulink" href={p.codigo} rel="noopener noreferrer">Ver el código</a>
