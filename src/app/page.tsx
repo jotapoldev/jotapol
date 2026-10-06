@@ -44,7 +44,7 @@ export default function Home() {
                 <span className="w"><span>Initial</span></span> <span className="w"><span>commit</span></span>
                 <Cursor />
               </h1>
-              <p className="lead">Construimos software: productos propios y proyectos para clientes. Lo que se puede abrir sale open source.</p>
+              <p className="lead">Construimos software: productos propios y proyectos para clientes, de la idea a producción.</p>
               <p className="actions">
                 <a className="btn" href="#proyectos">Ver proyectos</a>
                 <a className="btn btn-ghost" href="#contacto">Contar tu proyecto</a>
@@ -87,7 +87,7 @@ export default function Home() {
                     <p className="trailer">Hecho-con: {p.stack.join(", ")}</p>
                     <p className="plinks">
                       {p.demo && <a className="btn" href={p.demo} rel="noopener noreferrer">Probar en vivo</a>}
-                      <a className="ulink" href={p.codigo} rel="noopener noreferrer">Ver el código</a>
+                      {p.codigo && <a className="ulink" href={p.codigo} rel="noopener noreferrer">Ver el código</a>}
                     </p>
                   </div>
                   {/* Escena: la app en escritorio y en celular. En pantallas chicas queda solo el celular, completo. */}

@@ -6,7 +6,7 @@ export type Proyecto = {
   descripcion: string;
   stack: string[];
   openSource: boolean;
-  codigo: string;
+  codigo?: string;
   demo?: string;
   tono: "indigo" | "menta";
   imagen: { src: string; movil: string; alt: string };
@@ -38,6 +38,18 @@ export const proyectos: Proyecto[] = [
     demo: "https://llaves.jotapol.com",
     tono: "menta",
     imagen: { src: "/img/llaves.webp", movil: "/img/llaves-movil.webp", alt: "Cuadro de eliminación de LLAVES con ocho equipos y Halcones como campeón." },
+  },
+  {
+    hash: "c41e7b2",
+    mensaje: "feat: tradelearn demo",
+    nombre: "TradeLearn",
+    descripcion:
+      "Panel de mercados para aprender a invertir: precios de cripto y ETFs, portafolio, lecciones y backtests de estrategias. La demo usa datos simulados y no se conecta a ningún broker.",
+    stack: ["Next.js", "React", "Recharts"],
+    openSource: false,
+    demo: "https://trading.jotapol.com",
+    tono: "indigo",
+    imagen: { src: "/img/trading.webp", movil: "/img/trading-movil.webp", alt: "Dashboard de TradeLearn con el precio de Bitcoin y el índice de miedo y codicia." },
   },
 ];
 
