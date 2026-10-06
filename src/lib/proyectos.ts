@@ -7,6 +7,7 @@ export type Proyecto = {
   stack: string[];
   openSource: boolean;
   codigo: string;
+  demo?: string;
   imagen: { src: string; alt: string };
 };
 
@@ -20,6 +21,7 @@ export const proyectos: Proyecto[] = [
     stack: ["Next.js", "React", "PGlite"],
     openSource: true,
     codigo: "https://github.com/jotapoldev/shiplog",
+    demo: "https://shiplog.jotapol.com",
     imagen: { src: "/img/shiplog.webp", alt: "Vista de ramas de Shiplog: develop tiene 9 commits que qa todavía no tiene." },
   },
   {
@@ -27,10 +29,11 @@ export const proyectos: Proyecto[] = [
     mensaje: "feat: llaves v1",
     nombre: "LLAVES",
     descripcion:
-      "Torneos con llaves en vivo: liga, eliminación directa y doble eliminación. El organizador marca los resultados y todos los que tienen el link ven el cuadro actualizarse al instante.",
-    stack: ["Node", "Express", "SSE", "Postgres"],
+      "Torneos con llaves en vivo: liga, eliminación directa y doble eliminación. Armás el torneo, compartís el código de la sala y todos ven el cuadro actualizarse al instante. Sin cuentas y sin guardar datos.",
+    stack: ["Node", "Express", "SSE"],
     openSource: true,
     codigo: "https://github.com/jotapoldev/llaves",
+    demo: "https://llaves.jotapol.com",
     imagen: { src: "/img/llaves.webp", alt: "Cuadro de eliminación de LLAVES con ocho equipos y Halcones como campeón." },
   },
 ];

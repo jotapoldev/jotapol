@@ -84,7 +84,10 @@ export default function Home() {
                       {p.stack.map((s) => <li key={s}>{s}</li>)}
                       {p.openSource && <li className="oss">open source</li>}
                     </ul>
-                    <a className="ulink" href={p.codigo} rel="noopener noreferrer">Ver el código</a>
+                    <p className="plinks">
+                      {p.demo && <a className="btn" href={p.demo} rel="noopener noreferrer">Probar en vivo</a>}
+                      <a className="ulink" href={p.codigo} rel="noopener noreferrer">Ver el código</a>
+                    </p>
                   </div>
                   <figure className="shot">
                     <img src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${p.imagen.src}`} width={1600} height={1100} alt={p.imagen.alt} loading="lazy" decoding="async" />
