@@ -36,7 +36,7 @@ export const proyectos: Proyecto[] = [
 ];
 
 export const contacto = [
-  { tipo: "correo", texto: "jotapoldev@gmail.com", href: "mailto:jotapoldev@gmail.com" },
+  { tipo: "correo", texto: "hola@jotapol.com", href: "mailto:hola@jotapol.com" },
   { tipo: "instagram", texto: "@jotapol.dev", href: "https://www.instagram.com/jotapol.dev/" },
   { tipo: "github", texto: "github.com/jotapoldev", href: "https://github.com/jotapoldev" },
 ];
