@@ -57,6 +57,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <meta httpEquiv="Content-Security-Policy" content={csp} />
         {/* Aplica el tema guardado antes de pintar, para que no parpadee. */}
         <script dangerouslySetInnerHTML={{ __html: 'try{var t=localStorage.getItem("tema");if(t)document.documentElement.dataset.theme=t}catch(e){}' }} />
+        {/* Taplog: cuenta la visita (página y de dónde llegó), sin datos de la persona. */}
+        <script dangerouslySetInnerHTML={{ __html: '(()=>{let l;const h=()=>{const p=location.pathname;if(p===l)return;const r=l?location.origin+"/":document.referrer,q=l?"":location.search;l=p;navigator.sendBeacon("https://jotapol.com/r/hit",JSON.stringify({s:"web",p,r,q}))},w=history.pushState;history.pushState=function(){w.apply(this,arguments);h()};addEventListener("popstate",h);h()})()' }} />
       </head>
       <body>{children}</body>
     </html>
