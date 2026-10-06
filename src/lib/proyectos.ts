@@ -51,6 +51,18 @@ export const proyectos: Proyecto[] = [
     tono: "indigo",
     imagen: { src: "/img/trading.webp", movil: "/img/trading-movil.webp", alt: "Dashboard de TradeLearn con el precio de Bitcoin y el índice de miedo y codicia." },
   },
+  {
+    hash: "69c80f7",
+    mensaje: "feat: taplog",
+    nombre: "Taplog",
+    descripcion:
+      "Links cortos con contador para saber qué post o reel trae gente: de dónde vienen los clics, cuántos por día y cuánto alcance se vuelve visita. No guarda datos de nadie, solo números agregados.",
+    stack: ["Node", "SQLite", "SVG"],
+    openSource: false,
+    demo: "https://jotapol.com/r/demo",
+    tono: "menta",
+    imagen: { src: "/img/taplog.webp", movil: "/img/taplog-movil.webp", alt: "Tablero de Taplog en modo oscuro: clics de la semana, la línea de clics por día y el ranking de posts." },
+  },
 ];
 
 export const contacto = [
