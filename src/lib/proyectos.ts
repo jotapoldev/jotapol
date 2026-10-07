@@ -10,9 +10,10 @@ export type Proyecto = {
   demo?: string;
   tono: "indigo" | "menta";
   imagen: { src: string; movil: string; alt: string };
+  oculto?: boolean;
 };
 
-export const proyectos: Proyecto[] = [
+const todos: Proyecto[] = [
   {
     hash: "6919c13",
     mensaje: "feat: shiplog v0.1",
@@ -61,9 +62,12 @@ export const proyectos: Proyecto[] = [
     openSource: false,
     demo: "https://jotapol.com/r/demo",
     tono: "menta",
+    oculto: true, // hasta rediseñar el tablero
     imagen: { src: "/img/taplog.webp", movil: "/img/taplog-movil.webp", alt: "Tablero de Taplog en modo oscuro: clics de la semana, la línea de clics por día y el ranking de posts." },
   },
 ];
+
+export const proyectos = todos.filter((p) => !p.oculto);
 
 export const contacto = [
   { tipo: "correo", texto: "hola@jotapol.com", href: "mailto:hola@jotapol.com" },
